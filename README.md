@@ -31,19 +31,18 @@ The longitudinal controller aims to maintain the target speed of the vehicle. It
 
 ---
 
-## Lateral Controllers ⬅️➕➡️
 
+## Lateral Controllers ⬅️➕➡️
 The goal of the lateral controller is to adjust the steering angle to make the vehicle follow a predetermined path. This process is known as **path tracking**.
 
-### `CustomLateralController_v1` Algorithm (Version 1.0):
+### I. `CustomLateralController_v1` Algorithm (Version 1.0):
 
- 1. **Calculate Heading Error**: The heading error is computed by calculating the vector direction from the vehicle's position to the closest waypoint. The heading error is the angular difference between the vehicle's current heading and the direction towards the waypoint.
+ 1. **Calculate Heading Error**: The heading error is computed by calculating the vector direction from the vehicle's position to the closest waypoint. The heading error is the angular difference between the vehicle's current heading and the direction towards the waypoint. Where `waypoint_angle` is the direction from the vehicle to the target waypoint, and `current_heading` is the vehicle's current heading.
 
    $$
    \text{heading error} = \text{waypoint angle} - \text{current heading}
    $$
 
-   Where `waypoint_angle` is the direction from the vehicle to the target waypoint, and `current_heading` is the vehicle's current heading.
 
  2. **Normalize Error**: The heading error is normalized to the range $[-\pi, \pi]$ to avoid angle overflow.
 
@@ -55,9 +54,9 @@ The goal of the lateral controller is to adjust the steering angle to make the v
 
  4. **Control Output**: The computed steering angle is returned.
 
-### `CustomLateralController_v2` Algorithm (Version 2.0):
+### II. `CustomLateralController_v2` Algorithm (Version 2.0):
 
-Similar to `v1`, `v2` introduces a **gain factor (steer_gain)** to adjust the sensitivity of the steering response:
+   Similar to `v1`, `v2` introduces a **gain factor (steer_gain)** to adjust the sensitivity of the steering response:
 
  1. **Heading Error Calculation**: Same as `v1`, the heading error is computed between the current vehicle position and the target waypoint.
 
@@ -69,7 +68,7 @@ Similar to `v1`, `v2` introduces a **gain factor (steer_gain)** to adjust the se
 
  3. **Control Output**: The steering angle is limited to the range $[-1.0, 1.0]$.
 
-### `CustomLateralController_v3` Algorithm (Version 3.0):
+### III. `CustomLateralController_v3` Algorithm (Version 3.0):
 
 `v3` is designed similarly to `v1` and `v2`, but it uses a different approach to calculate the steering angle:
 
