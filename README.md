@@ -74,15 +74,17 @@ The goal of the lateral controller is to adjust the steering angle to make the v
 
  1. **Heading Error Calculation**: Same as the previous versions, the heading error is computed between the vehicle and the target waypoint.
 
- 2. **Non-linear Steering Response**: Unlike `v1` and `v2` that use linear proportional control, `v3` uses a **tangent function (tan)** to calculate the steering angle:
+ 2. **Non-linear Steering Response**: Unlike `v1` and `v2` that use linear proportional control, `v3` uses a **tangent function (tan)** to calculate the steering angle. Using the tangent function provides a smoother response, especially when the heading error is small, which helps to reduce oversteering.
 
    $$
    \text{steering} = \tan(\text{heading error})
    $$
 
-   Using the tangent function provides a smoother response, especially when the heading error is small, which helps to reduce oversteering.
+   
 
  3. **Control Output**: The steering angle is also limited to the range $[-1.0, 1.0]$ to ensure it remains within an acceptable range for the vehicle.
+
+---
 
 ### Summary:
 - **Longitudinal Control**: Uses proportional control to ensure the vehicle reaches and maintains the target speed, preventing overspeeding or moving too slowly.
