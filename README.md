@@ -108,6 +108,8 @@ vehicle.apply_control(control_command)  # Apply the control command
 
 ## Video Example
 
-The test video is as follows:
+Here is the embedded video:
 
-[![Video Title]()
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vgmIjZysimE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
