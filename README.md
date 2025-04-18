@@ -1,8 +1,8 @@
-# CARLA Autonomous Driving Controller
+# CARLA Autonomous Driving Controller🚗🤖
 
 This project implements longitudinal and lateral control algorithms for autonomous vehicles in the CARLA simulation environment. It includes multiple versions of lateral controllers (`CustomLateralController_v1`, `CustomLateralController_v2`, `CustomLateralController_v3`) and a longitudinal controller (`CustomLongitudinalController`). Below is a detailed description of the algorithms used in each controller.
 
-## Longitudinal Controller (`CustomLongitudinalController`)
+## Longitudinal Controller (`CustomLongitudinalController`)⬆️
 
 ### Algorithm Description:
 The longitudinal controller aims to maintain the target speed of the vehicle. It adjusts the throttle and brake values based on the difference between the current vehicle speed and the target speed using a **Proportional Control** algorithm.
@@ -31,7 +31,7 @@ The longitudinal controller aims to maintain the target speed of the vehicle. It
 
 ---
 
-## Lateral Controllers (`CustomLateralController_v1`, `CustomLateralController_v2`, `CustomLateralController_v3`)
+## Lateral Controllers ⬅️➕➡️
 
 The goal of the lateral controller is to adjust the steering angle to make the vehicle follow a predetermined path. This process is known as **path tracking**.
 
@@ -104,13 +104,49 @@ control_command = controller.run_step(target_speed, waypoints)
 vehicle.apply_control(control_command)  # Apply the control command
 
 ```
----
+
+## Waypoints and Solution Path
+
+Below is a plot showing the **waypoints** and the **solution path** for a given trajectory. 
+
+- **Blue stars (waypoints)** represent the predefined path nodes. These are key points in the trajectory that the algorithm or system uses to define the main changes or turns in the path.
+- **Orange curve (solution)** represents the final solution path or the actual trajectory that is optimized or computed by the algorithm. This path is typically a smooth curve that connects the waypoints, adjusting for obstacles, constraints, or other factors that influence the path planning.
+
+The x-axis represents the horizontal position (x-coordinate in meters), and the y-axis represents the vertical position (y-coordinate in meters). The shape of the path indicates how the algorithm navigates through the environment while optimizing the route.
+
+**My algorithm has achieved a 99.75% completion rate！🙂🙂🙂**
+
+![result1](https://github.com/user-attachments/assets/3769346b-d3f8-421b-bf1c-5b24c89a551d)
+
 
 ## Video Example
 
-Here is the embedded video:
+### Here are the testing videos showing different directions:
+For the full HD version, you can watch it on **[YouTube](https://www.youtube.com/watch?v=vgmIjZysimE)**.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vgmIjZysimE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Below are three short videos demonstrating the **left**, **straight**, and **right** directions:
+
+**👈 Left Direction 👈**
+
+[Watch the video - Left](https://github.com/user-attachments/assets/8afce078-cbe0-400e-808d-3862026e0ed0)
+
+**⬆️ Straight Direction ⬆️**
+
+[Watch the video - Straight](https://github.com/user-attachments/assets/348084d4-1cd2-4aa7-a07c-ed7cf8a80584)
+
+**👉 Right Direction 👉**
+
+[Watch the video - Right](https://github.com/user-attachments/assets/7a858a46-680a-4a86-a4b2-d7482929b8f5)
+
+
+
+
+
+
+
+
+
+
 
 
 
